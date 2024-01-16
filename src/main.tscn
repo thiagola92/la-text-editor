@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4h66l3uvytlj"]
+
+[ext_resource type="Script" path="res://src/main.gd" id="1_pjl41"]
+[ext_resource type="Script" path="res://src/components/tab_editor/tab_editor.gd" id="2_1q6d7"]
+[ext_resource type="Script" path="res://src/components/code_editor/code_editor.gd" id="3_qwxcu"]
+
+[node name="Main" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pjl41")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TabEditor" type="TabContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+drag_to_rearrange_enabled = true
+script = ExtResource("2_1q6d7")
+
+[node name="CodeEditor" type="CodeEdit" parent="VBoxContainer/TabEditor"]
+layout_mode = 2
+gutters_draw_line_numbers = true
+code_completion_enabled = true
+script = ExtResource("3_qwxcu")
