@@ -98,50 +98,50 @@ Atalhos relacionados ao editor de texto.
 
 | Atalho          | Ação                        | Selecionado | Novo Modo    | Done |
 | --------------- | --------------------------- | :---------: | :----------: | ---- |
-| `<ctrl>` + `'`  |                             |             |              |      |
-| `<ctrl>` + `"`  |                             |             |              |      |
-| `<ctrl>` + `1`  |                             |             |              |      |
-| `<ctrl>` + `!`  |                             |             |              |      |
-| `<ctrl>` + `2`  |                             |             |              |      |
-| `<ctrl>` + `@`  |                             |             |              |      |
-| `<ctrl>` + `3`  |                             |             |              |      |
-| `<ctrl>` + `#`  |                             |             |              |      |
-| `<ctrl>` + `4`  |                             |             |              |      |
-| `<ctrl>` + `$`  |                             |             |              |      |
-| `<ctrl>` + `5`  |                             |             |              |      |
-| `<ctrl>` + `%`  |                             |             |              |      |
-| `<ctrl>` + `6`  |                             |             |              |      |
-| `<ctrl>` + `¨`  |                             |             |              |      |
-| `<ctrl>` + `7`  |                             |             |              |      |
-| `<ctrl>` + `&`  |                             |             |              |      |
-| `<ctrl>` + `8`  |                             |             |              |      |
-| `<ctrl>` + `*`  |                             |             |              |      |
-| `<ctrl>` + `9`  |                             |             |              |      |
-| `<ctrl>` + `(`  |                             |             |              |      |
-| `<ctrl>` + `0`  |                             |             |              |      |
-| `<ctrl>` + `)`  |                             |             |              |      |
+| `<ctrl>` + `'`  | TODO                        |             |              |      |
+| `<ctrl>` + `"`  | TODO                        |             |              |      |
+| `<ctrl>` + `1`  | TODO                        |             |              |      |
+| `<ctrl>` + `!`  | TODO                        |             |              |      |
+| `<ctrl>` + `2`  | TODO                        |             |              |      |
+| `<ctrl>` + `@`  | TODO                        |             |              |      |
+| `<ctrl>` + `3`  | TODO                        |             |              |      |
+| `<ctrl>` + `#`  | TODO                        |             |              |      |
+| `<ctrl>` + `4`  | TODO                        |             |              |      |
+| `<ctrl>` + `$`  | TODO                        |             |              |      |
+| `<ctrl>` + `5`  | TODO                        |             |              |      |
+| `<ctrl>` + `%`  | TODO                        |             |              |      |
+| `<ctrl>` + `6`  | TODO                        |             |              |      |
+| `<ctrl>` + `¨`  | TODO                        |             |              |      |
+| `<ctrl>` + `7`  | TODO                        |             |              |      |
+| `<ctrl>` + `&`  | TODO                        |             |              |      |
+| `<ctrl>` + `8`  | TODO                        |             |              |      |
+| `<ctrl>` + `*`  | TODO                        |             |              |      |
+| `<ctrl>` + `9`  | TODO                        |             |              |      |
+| `<ctrl>` + `(`  | TODO                        |             |              |      |
+| `<ctrl>` + `0`  | TODO                        |             |              |      |
+| `<ctrl>` + `)`  | TODO                        |             |              |      |
 | `<ctrl>` + `-`  | zoom out                    |             |              |      |
-| `<ctrl>` + `_`  |                             |             |              |      |
+| `<ctrl>` + `_`  | TODO                        |             |              |      |
 | `<ctrl>` + `=`  | zoom in                     |             |              |      |
 | `<ctrl>` + `+`  | zoom reset                  |             |              |      |
-| `<ctrl>` + `´`  |                             |             |              |      |
-| `<ctrl>` + `\`` |                             |             |              |      |
-| `<ctrl>` + `[`  |                             |             |              |      |
-| `<ctrl>` + `{`  |                             |             |              |      |
-| `<ctrl>` + `~`  |                             |             |              |      |
-| `<ctrl>` + `^`  |                             |             |              |      |
-| `<ctrl>` + `]`  |                             |             |              |      |
-| `<ctrl>` + `}`  |                             |             |              |      |
-| `<ctrl>` + `,`  |                             |             |              |      |
-| `<ctrl>` + `<`  |                             |             |              |      |
-| `<ctrl>` + `.`  |                             |             |              |      |
-| `<ctrl>` + `>`  |                             |             |              |      |
-| `<ctrl>` + `;`  |                             |             |              |      |
-| `<ctrl>` + `:`  |                             |             |              |      |
+| `<ctrl>` + `´`  | TODO                        |             |              |      |
+| `<ctrl>` + `\`` | TODO                        |             |              |      |
+| `<ctrl>` + `[`  | TODO                        |             |              |      |
+| `<ctrl>` + `{`  | TODO                        |             |              |      |
+| `<ctrl>` + `~`  | TODO                        |             |              |      |
+| `<ctrl>` + `^`  | TODO                        |             |              |      |
+| `<ctrl>` + `]`  | TODO                        |             |              |      |
+| `<ctrl>` + `}`  | TODO                        |             |              |      |
+| `<ctrl>` + `,`  | TODO                        |             |              |      |
+| `<ctrl>` + `<`  | TODO                        |             |              |      |
+| `<ctrl>` + `.`  | TODO                        |             |              |      |
+| `<ctrl>` + `>`  | TODO                        |             |              |      |
+| `<ctrl>` + `;`  | TODO                        |             |              |      |
+| `<ctrl>` + `:`  | TODO                        |             |              |      |
 | `<ctrl>` + `/`  | comment code                |             |              |      |
-| `<ctrl>` + `?`  |                             |             |              |      |
-| `<ctrl>` + `\`  |                             |             |              |      |
-| `<ctrl>` + `\|`  |                             |             |              |      |
+| `<ctrl>` + `?`  | TODO                        |             |              |      |
+| `<ctrl>` + `\`  | TODO                        |             |              |      |
+| `<ctrl>` + `\|`  | TODO                        |             |              |      |
 
 | Atalho                | Ação                      | Selecionado | Novo Modo    | Done |
 | --------------------- | ------------------------- | :---------: | :----------: | ---- |
