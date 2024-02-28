@@ -141,7 +141,7 @@ Atalhos relacionados ao editor de texto.
 | `<ctrl>` + `/`  | comment code                |             |              |      |
 | `<ctrl>` + `?`  |                             |             |              |      |
 | `<ctrl>` + `\`  |                             |             |              |      |
-| `<ctrl>` + `|`  |                             |             |              |      |
+| `<ctrl>` + `\|`  |                             |             |              |      |
 
 | Atalho                | Ação                      | Selecionado | Novo Modo    | Done |
 | --------------------- | ------------------------- | :---------: | :----------: | ---- |
