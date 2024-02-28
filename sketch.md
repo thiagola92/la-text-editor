@@ -66,7 +66,7 @@ Atalhos relacionados ao editor de texto.
 | `<ctrl>` + `L` | TODO                        |             |              |      |
 | `<ctrl>` + `m` | mover foco para grupo       |             | grupo        |      |
 | `<ctrl>` + `M` | mover tab para grupo        |             | grupo        |      |
-| `<ctrl>` + `n` | nova tab                    |             |              |      |
+| `<ctrl>` + `n` | nova tab                    |             |              | x    |
 | `<ctrl>` + `N` | nova janela                 |             |              |      |
 | `<ctrl>` + `o` | abrir arquivo               |             |              |      |
 | `<ctrl>` + `O` | abrir projeto               |             |              |      |
