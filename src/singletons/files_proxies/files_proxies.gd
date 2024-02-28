@@ -1,7 +1,4 @@
 ## Provide a single point access to all [FileProxy] in use.
-##
-## 
-class_name FileProxies
 extends Node
 
 
@@ -24,7 +21,7 @@ func get_file_proxy(filepath: String) -> FileProxy:
 
 func _remove_inactive_proxies():
 	for file_proxy in _file_proxies:
-		printt(file_proxy.get_filepath(), file_proxy.get_reference_count())
 		# If only this loop and array are referencing, remove it.
 		if file_proxy.get_reference_count() <= 2:
+			printt("Removing from FilesProxies", file_proxy.get_filepath(), file_proxy.get_reference_count())
 			_file_proxies.erase(file_proxy)

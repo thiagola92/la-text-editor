@@ -1,0 +1,4 @@
+[gd_resource type="Theme" format=3 uid="uid://bb0kr1eocs3ta"]
+
+[resource]
+TabContainer/constants/side_margin = 0
