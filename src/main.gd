@@ -19,7 +19,8 @@ func _shortcut_input(_event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 
 
-func _on_file_opener_file_selected(path: String) -> void:
+func open_project_in_file(path: String) -> void:
+	# TODO: change to open a new process with the file opened.
 	var code_editor: CodeEditor = CODE_EDITOR.instantiate()
 	var file_proxy: FileProxy = FilesProxies.get_file_proxy(path)
 	

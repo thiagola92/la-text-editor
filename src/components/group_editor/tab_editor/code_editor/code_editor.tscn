@@ -12,3 +12,5 @@ gutters_draw_line_numbers = true
 auto_brace_completion_enabled = true
 auto_brace_completion_highlight_matching = true
 script = ExtResource("1_t4ew2")
+
+[connection signal="text_changed" from="." to="." method="_update_text"]

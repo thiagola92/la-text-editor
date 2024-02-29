@@ -40,4 +40,4 @@ ok_button_text = "Select Current Folder"
 file_mode = 2
 access = 2
 
-[connection signal="file_selected" from="FileOpener" to="." method="_on_file_opener_file_selected"]
+[connection signal="file_selected" from="FileOpener" to="." method="open_project_in_file"]

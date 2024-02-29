@@ -2,6 +2,8 @@
 extends Node
 
 
+## Array holding all [FileProxy] that the editor is interacting.[br]
+## This variable shouldn't be changed directly.
 var _file_proxies: Array[FileProxy] = []
 
 
@@ -11,7 +13,7 @@ func _process(_delta):
 
 func get_file_proxy(filepath: String) -> FileProxy:
 	for file_buffer in _file_proxies:
-		if file_buffer.get_filepath() == filepath:
+		if file_buffer.filepath == filepath:
 			return file_buffer
 	
 	var new_proxy = FileProxy.new(filepath)
@@ -23,5 +25,5 @@ func _remove_inactive_proxies():
 	for file_proxy in _file_proxies:
 		# If only this loop and array are referencing, remove it.
 		if file_proxy.get_reference_count() <= 2:
-			printt("Removing from FilesProxies", file_proxy.get_filepath(), file_proxy.get_reference_count())
+			printt("Removing from FilesProxies", file_proxy.filepath, file_proxy.get_reference_count())
 			_file_proxies.erase(file_proxy)

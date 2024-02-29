@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bclwgesgwmcnq"]
+[gd_scene load_steps=2 format=3 uid="uid://bclwgesgwmcnq"]
 
 [ext_resource type="Script" path="res://src/components/group_editor/tab_editor/tab_editor.gd" id="1_n3njw"]
-[ext_resource type="PackedScene" uid="uid://cljcani1grw4" path="res://src/components/group_editor/tab_editor/code_editor/code_editor.tscn" id="2_d066j"]
 
 [node name="TabEditor" type="TabContainer"]
 anchors_preset = 15
@@ -12,15 +11,3 @@ grow_vertical = 2
 size_flags_vertical = 3
 drag_to_rearrange_enabled = true
 script = ExtResource("1_n3njw")
-
-[node name="CodeEditor" parent="." instance=ExtResource("2_d066j")]
-layout_mode = 2
-
-[node name="CodeEditor2" parent="." instance=ExtResource("2_d066j")]
-visible = false
-layout_mode = 2
-delimiter_strings = Array[String](["\" \"", "' '"])
-
-[node name="CodeEditor3" parent="." instance=ExtResource("2_d066j")]
-visible = false
-layout_mode = 2
