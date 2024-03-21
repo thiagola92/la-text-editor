@@ -125,7 +125,7 @@ Atalhos relacionados ao editor de texto.
 | `<ctrl>` + `=`  | zoom in                     |             |              |      |
 | `<ctrl>` + `+`  | zoom reset                  |             |              |      |
 | `<ctrl>` + `´`  | TODO                        |             |              |      |
-| `<ctrl>` + `\`` | TODO                        |             |              |      |
+| `<ctrl>` + `` ` `` | TODO                        |             |              |      |
 | `<ctrl>` + `[`  | TODO                        |             |              |      |
 | `<ctrl>` + `{`  | TODO                        |             |              |      |
 | `<ctrl>` + `~`  | TODO                        |             |              |      |
