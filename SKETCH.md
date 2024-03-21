@@ -86,7 +86,7 @@ Atalhos relacionados ao editor de texto.
 | `<ctrl>` + `U` | TODO                        |             |              |      |
 | `<ctrl>` + `v` | colar copiado               |             |              | x    |
 | `<ctrl>` + `V` | colar antes do character    |             | movimentação |      |
-| `<ctrl>` + `w` | fechar tab                  |             |              |      |
+| `<ctrl>` + `w` | fechar tab                  |             |              | x    |
 | `<ctrl>` + `W` | fechar janela               |             |              |      |
 | `<ctrl>` + `x` | recortar linha              |             |              | x    |
 | `<ctrl>` + `x` | recortar selecionado        | x           |              | x    |
