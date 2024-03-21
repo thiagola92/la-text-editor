@@ -24,10 +24,22 @@ func _process_arguments() -> void:
 
 func _create_window() -> void:
 	var window: WindowEditor = WINDOW_EDITOR.instantiate() as WindowEditor
+	
+	# This scene can't process inputs, so some action come from window request.
 	window.new_window_requested.connect(_create_window)
+	window.quit_requested.connect(_quit)
+	
 	add_child(window)
+
+
+func _quit() -> void:
+	# Has already being deleted.
+	if not get_tree():
+		return
+	
+	get_tree().quit()
 
 
 func _on_child_order_changed() -> void:
 	if get_child_count() == 0:
-		get_tree().quit()
+		_quit()

@@ -4,6 +4,8 @@ extends Window
 
 signal new_window_requested
 
+signal quit_requested
+
 const CODE_EDITOR := preload("res://src/components/code_editor/code_editor.tscn")
 
 @export var window_info: WindowInfo
@@ -18,6 +20,12 @@ const CODE_EDITOR := preload("res://src/components/code_editor/code_editor.tscn"
 func _shortcut_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_window_new"):
 		new_window_requested.emit()
+		get_viewport().set_input_as_handled()
+	elif Input.is_action_just_pressed("ui_window_close"):
+		queue_free()
+		get_viewport().set_input_as_handled()
+	elif Input.is_action_just_pressed("ui_quit"):
+		quit_requested.emit()
 		get_viewport().set_input_as_handled()
 	elif Input.is_action_just_pressed("ui_project_open"):
 		project_opener.popup_centered()

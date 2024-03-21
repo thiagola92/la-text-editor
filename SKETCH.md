@@ -67,13 +67,13 @@ Atalhos relacionados ao editor de texto.
 | `<ctrl>` + `m` | mover foco para grupo       |             | grupo        |      |
 | `<ctrl>` + `M` | mover tab para grupo        |             | grupo        |      |
 | `<ctrl>` + `n` | nova tab                    |             |              | x    |
-| `<ctrl>` + `N` | nova janela                 |             |              |      |
-| `<ctrl>` + `o` | abrir arquivo               |             |              |      |
+| `<ctrl>` + `N` | nova janela                 |             |              | x    |
+| `<ctrl>` + `o` | abrir arquivo               |             |              | x    |
 | `<ctrl>` + `O` | abrir projeto               |             |              |      |
 | `<ctrl>` + `p` | escolher comando            |             | paleta       |      |
 | `<ctrl>` + `P` | escolher modo               |             | paleta       |      |
-| `<ctrl>` + `q` | TODO                        |             |              |      |
-| `<ctrl>` + `Q` | TODO                        |             |              |      |
+| `<ctrl>` + `q` | fechar editor               |             |              | x    |
+| `<ctrl>` + `Q` | DONT                        |             |              |      |
 | `<ctrl>` + `r` | substituir no arquivo       |             | busca        |      |
 | `<ctrl>` + `r` | substituir texto no arquivo | x           | busca        |      |
 | `<ctrl>` + `R` | substituir no projeto       |             | busca        |      |
@@ -87,7 +87,7 @@ Atalhos relacionados ao editor de texto.
 | `<ctrl>` + `v` | colar copiado               |             |              | x    |
 | `<ctrl>` + `V` | colar antes do character    |             | movimentação |      |
 | `<ctrl>` + `w` | fechar tab                  |             |              | x    |
-| `<ctrl>` + `W` | fechar janela               |             |              |      |
+| `<ctrl>` + `W` | fechar janela               |             |              | x    |
 | `<ctrl>` + `x` | recortar linha              |             |              | x    |
 | `<ctrl>` + `x` | recortar selecionado        | x           |              | x    |
 | `<ctrl>` + `X` | recortar até character      |             | movimentação |      |
