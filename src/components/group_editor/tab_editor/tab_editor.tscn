@@ -9,5 +9,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
+theme_override_constants/side_margin = 0
 drag_to_rearrange_enabled = true
 script = ExtResource("1_n3njw")

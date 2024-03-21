@@ -21,6 +21,9 @@ func _shortcut_input(_event: InputEvent) -> void:
 	elif Input.is_action_just_pressed("ui_tab_new"):
 		_open_new_tab()
 		get_viewport().set_input_as_handled()
+	elif Input.is_action_just_pressed("ui_tab_close"):
+		_close_tab(current_tab)
+		get_viewport().set_input_as_handled()
 
 
 func _update_tabs_names():
