@@ -2,7 +2,7 @@ class_name TabEditor
 extends TabContainer
 
 
-const CODE_EDITOR := preload("res://src/components/group_editor/tab_editor/code_editor/code_editor.tscn")
+const CODE_EDITOR := preload("res://src/components/code_editor/code_editor.tscn")
 
 
 func _ready():
@@ -15,10 +15,7 @@ func _ready():
 
 
 func _shortcut_input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("ui_window_new"):
-		# TODO: Create new process of the game with parameters to open in this directory.
-		pass
-	elif Input.is_action_just_pressed("ui_tab_new"):
+	if Input.is_action_just_pressed("ui_tab_new"):
 		_open_new_tab()
 		get_viewport().set_input_as_handled()
 	elif Input.is_action_just_pressed("ui_tab_close"):
@@ -41,4 +38,5 @@ func _open_new_tab():
 
 
 func _close_tab(tab: int):
-	get_child(tab).queue_free()
+	if tab >= 0:
+		get_child(tab).queue_free()

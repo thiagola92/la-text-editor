@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bi78u6ixv0ar1"]
+
+[ext_resource type="Script" path="res://src/components/window_info/window_info.gd" id="1_5tmtm"]
+
+[node name="WindowInfo" type="Node"]
+script = ExtResource("1_5tmtm")

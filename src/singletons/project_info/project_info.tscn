@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bppmw2eedi113"]
-
-[ext_resource type="Script" path="res://src/singletons/project_info/project_info.gd" id="1_5tmtm"]
-
-[node name="ProjectInfo" type="Node"]
-script = ExtResource("1_5tmtm")

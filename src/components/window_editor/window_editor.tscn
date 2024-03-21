@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkhq6f73wk65g"]
+
+[ext_resource type="Script" path="res://src/components/window_editor/window_editor.gd" id="1_85pdn"]
+[ext_resource type="PackedScene" uid="uid://bclwgesgwmcnq" path="res://src/components/tab_editor/tab_editor.tscn" id="2_kvvrp"]
+[ext_resource type="PackedScene" uid="uid://bi78u6ixv0ar1" path="res://src/components/window_info/window_info.tscn" id="3_8j50a"]
+
+[node name="WindowEditor" type="Window" node_paths=PackedStringArray("window_info", "tab_editor", "file_opener", "project_opener")]
+initial_position = 4
+size = Vector2i(1152, 648)
+script = ExtResource("1_85pdn")
+window_info = NodePath("WindowInfo")
+tab_editor = NodePath("HSplitContainer/TabEditor")
+file_opener = NodePath("FileOpener")
+project_opener = NodePath("ProjectOpener")
+
+[node name="WindowInfo" parent="." instance=ExtResource("3_8j50a")]
+
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+auto_translate_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+dragger_visibility = 2
+
+[node name="Tree" type="Tree" parent="HSplitContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+
+[node name="TabEditor" parent="HSplitContainer" instance=ExtResource("2_kvvrp")]
+auto_translate_mode = 1
+layout_mode = 2
+
+[node name="FileOpener" type="FileDialog" parent="."]
+auto_translate_mode = 1
+title = "Open a File"
+size = Vector2i(700, 350)
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+
+[node name="ProjectOpener" type="FileDialog" parent="."]
+auto_translate_mode = 1
+title = "Open a Directory"
+size = Vector2i(802, 350)
+ok_button_text = "Select Current Folder"
+file_mode = 2
+access = 2
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="file_selected" from="FileOpener" to="." method="_on_file_opener_file_selected"]
+[connection signal="dir_selected" from="ProjectOpener" to="." method="_on_project_opener_dir_selected"]

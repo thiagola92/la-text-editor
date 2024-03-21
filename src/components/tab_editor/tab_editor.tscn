@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bclwgesgwmcnq"]
 
-[ext_resource type="Script" path="res://src/components/group_editor/tab_editor/tab_editor.gd" id="1_n3njw"]
+[ext_resource type="Script" path="res://src/components/tab_editor/tab_editor.gd" id="1_n3njw"]
 
 [node name="TabEditor" type="TabContainer"]
 anchors_preset = 15
