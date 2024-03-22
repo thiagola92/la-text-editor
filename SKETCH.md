@@ -37,7 +37,7 @@ Atalhos relacionados ao editor de texto.
 > Extensões/plugins devem adicionar atalhos em outro modo!  
 
 | Atalho         | Ação                        | Selecionado | Novo Modo    | Tip       | Done |
-| -------------- | ----------------------------| :---------: | :----------: | :-------: | ---- |
+| -------------- | ----------------------------| :---------: | :----------: | -------   | ---- |
 | `<ctrl>` + `a` | selecionar tudo             |             |              | All       | x    |
 | `<ctrl>` + `A` | TODO                        |             |              |           |      |
 | `<ctrl>` + `b` | TODO                        |             |              |           |      |

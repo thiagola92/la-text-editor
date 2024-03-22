@@ -42,7 +42,8 @@ func filename() -> String:
 	return file_proxy.filepath.get_file()
 
 
-## Load the [FileProxy.text] into [member CodeEdit.text].[br]
+## Load the [member FileProxy.text] into [member CodeEdit.text].[br][br]
+##
 ## [b]Note[/b]: Use [method _reload_text] if you need to preserve information (like carets positions).
 func _load_text() -> void:
 	if not file_proxy:
