@@ -56,8 +56,16 @@ func new_tab() -> CodeEditor:
 	
 	add_child(code_editor)
 	current_tab = get_tab_count() - 1
+	focus_current_tab()
 	
 	return code_editor
+
+
+## Attempt to focus the [member current_tab].[br]
+## A temporary [TabEditor] wouldn't be in the tree, in this case do nothing.
+func focus_current_tab() -> void:
+	if is_inside_tree():
+		get_child(current_tab).grab_focus()
 
 
 func _reload_tabs_names() -> void:
@@ -78,11 +86,13 @@ func _close_tab(tab: int) -> void:
 func _next_tab() -> void:
 	if current_tab < get_child_count():
 		current_tab += 1
+		get_child(current_tab).grab_focus()
 
 
 func _previous_tab() -> void:
 	if current_tab > 0:
 		current_tab -= 1
+		get_child(current_tab).grab_focus()
 
 
 func _on_child_order_changed() -> void:

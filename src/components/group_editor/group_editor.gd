@@ -16,7 +16,19 @@ var _current_tab_editor: TabEditor
 
 
 func _ready() -> void:
-	add_child(_new_split_container()) # First SplitContainer.
+	_add_split_container(_new_split_container()) # First SplitContainer.
+
+
+func _shortcut_input(_event: InputEvent) -> void:
+	if not _is_empty():
+		return
+	
+	if Input.is_action_just_pressed("ui_file_open"):
+		_on_tab_editor_open_file_requested(_new_tab_editor(true))
+		get_viewport().set_input_as_handled()
+	elif Input.is_action_just_pressed("ui_tab_new"):
+		_add_split_container(_new_split_container())
+		get_viewport().set_input_as_handled()
 
 
 ## Get if there is no [SplitContainer]s in the [GroupEditor].[br]
@@ -29,33 +41,55 @@ func _is_empty() -> bool:
 	return true
 
 
-## Create a [SplitContainer] with a [TabEditor] child.[br]
-## [GroupEditor] will listen signals of [TabEditor]s created this way.
-func _new_split_container(vertical: bool = false) -> SplitContainer:
-	var tab_editor: TabEditor = _new_tab_editor()
+## Add the [SplitContainer] to the [GroupEditor].[br][br]
+## Used when adding the first [SplitContainer] because you need to grab the focus.[br]
+## Otherwise the existing [TabEditor] would control the focus.
+func _add_split_container(split_container: SplitContainer) -> SplitContainer:
+	add_child(split_container)
+	
+	for c in split_container.get_children():
+		if c is TabEditor:
+			c.focus_current_tab()
+			return split_container
+	
+	return split_container
+
+
+## Create a [SplitContainer] with a [TabEditor] as child.
+func _new_split_container(
+	vertical: bool = false,
+	tab_editor: TabEditor = _new_tab_editor()
+) -> SplitContainer:
 	var split_container := SplitContainer.new()
 	
 	split_container.vertical = vertical
 	split_container.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	split_container.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	
 	split_container.add_child(tab_editor)
 	split_container.child_order_changed.connect(
-		func():
-			if split_container.get_child_count() == 0:
-				split_container.queue_free()
+		_on_split_container_child_order_changed.bind(split_container)
 	)
 	
 	return split_container
 
 
-## Create a [TabEditor] and make this [GroupEditor] listen to requests from it.
-func _new_tab_editor() -> TabEditor:
+## Create a [TabEditor] and make this [GroupEditor] listen to requests from it.[br]
+## Use [code]empty[/code] as true if you are going to manually create the tab later.
+func _new_tab_editor(empty: bool = false) -> TabEditor:
 	var tab_editor := TAB_EDITOR.instantiate() as TabEditor
 	tab_editor.split_requested.connect(_on_tab_editor_split_requested)
 	tab_editor.open_file_requested.connect(_on_tab_editor_open_file_requested)
-	tab_editor.new_tab()
+	
+	if not empty:
+		tab_editor.new_tab()
 	
 	return tab_editor
+
+
+func _on_split_container_child_order_changed(split_container: SplitContainer) -> void:
+	if split_container.get_child_count() == 0:
+		split_container.queue_free()
 
 
 func _on_tab_editor_split_requested(tab_editor: TabEditor, vertical: bool) -> void:
@@ -89,11 +123,22 @@ func _on_file_opener_file_selected(path: String) -> void:
 	var file_proxy: FileProxy = FilesProxies.get_file_proxy(path)
 	
 	code_editor.file_proxy = file_proxy
+	
+	# It's a temporary [TabEditor], we need to turn into permanent.
+	if not _current_tab_editor.get_parent():
+		_add_split_container(_new_split_container(false, _current_tab_editor))
+	
 	_current_tab_editor = null
 
 
-func _on_child_order_changed() -> void:
-	# Never leave GroupEditor empty, otherwise TabEditor keybindings will not work
-	# And you will have to implement some of them in GroupEditor.
-	if _is_empty():
-		add_child(_new_split_container())
+## Cancel file opening.[br][br]
+## This is important because a temporary [TabEditor] with [b]no parent[/b] is created
+## before popup [member file_opener].[br][br]
+## We have no way to know if the user will confirm or cancel this operation,
+## so we hold creating [SplitContainer] and adding the [TabEditor] until the end.
+func _on_file_opener_canceled() -> void:
+	# It's a temporary [TabEditor], we need to free it.
+	if not _current_tab_editor.get_parent():
+		_current_tab_editor.queue_free()
+	
+	_current_tab_editor = null

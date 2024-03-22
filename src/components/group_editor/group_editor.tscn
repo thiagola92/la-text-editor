@@ -19,5 +19,5 @@ ok_button_text = "Open"
 file_mode = 0
 access = 2
 
-[connection signal="child_order_changed" from="." to="." method="_on_child_order_changed"]
+[connection signal="canceled" from="FileOpener" to="." method="_on_file_opener_canceled"]
 [connection signal="file_selected" from="FileOpener" to="." method="_on_file_opener_file_selected"]
