@@ -25,7 +25,6 @@ signal text_changed
 ## Signal that the path for the file changed.[br]
 signal path_changed
 
-
 ## Holds to path to the file each will be read and wrote to.
 var filepath: String = "":
 	set(fp):
@@ -46,6 +45,14 @@ func _init(path: String):
 	_read()
 
 
+## Write content to the file.[br]
+## Think of this as saving the file.
+func write() -> void:
+	if not filepath:
+		return
+	FileAccess.open(filepath, FileAccess.WRITE).store_string(text)
+
+
 ## Read the content from file and save it in [member text].[br]
 ## We don't deal with big files, this could crash the editor.
 func _read() -> void:
@@ -53,11 +60,3 @@ func _read() -> void:
 		text = ""
 	else:
 		text = FileAccess.open(filepath, FileAccess.READ).get_as_text()
-
-
-## Write content to the file.[br]
-## Think of this as saving the file.
-func write() -> void:
-	if not filepath:
-		return
-	FileAccess.open(filepath, FileAccess.WRITE).store_string(text)

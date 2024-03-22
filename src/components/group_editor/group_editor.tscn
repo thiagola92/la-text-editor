@@ -1,13 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://vs3v1esomspc"]
+[gd_scene load_steps=3 format=3 uid="uid://vs3v1esomspc"]
 
 [ext_resource type="PackedScene" uid="uid://bclwgesgwmcnq" path="res://src/components/tab_editor/tab_editor.tscn" id="1_c33tl"]
+[ext_resource type="Script" path="res://src/components/group_editor/group_editor.gd" id="1_n1d6m"]
 
-[node name="GroupEditor" type="SplitContainer"]
+[node name="GroupEditor" type="MarginContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_n1d6m")
 
-[node name="TabEditor" parent="." instance=ExtResource("1_c33tl")]
+[node name="SplitContainer" type="SplitContainer" parent="."]
 layout_mode = 2
+
+[node name="TabEditor" parent="SplitContainer" instance=ExtResource("1_c33tl")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TabEditor2" parent="SplitContainer" instance=ExtResource("1_c33tl")]
+auto_translate_mode = 1
+layout_mode = 2
+size_flags_horizontal = 3

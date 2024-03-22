@@ -21,13 +21,16 @@ var file_proxy: FileProxy:
 		file_proxy = fp
 		
 		if fp:
-			file_proxy.text_changed.connect(reload_text)
-			reload_text()
+			file_proxy.text_changed.connect(_reload_text)
+			_load_text()
+
+## Used to temporarily backup carets before loading text changes in [FileProxy].
+var _carets_backup: Array[Array]
 
 
 func _shortcut_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_file_save"):
-		save_text()
+		_save_text()
 		get_viewport().set_input_as_handled()
 
 
@@ -35,37 +38,44 @@ func _shortcut_input(_event: InputEvent) -> void:
 func filename() -> String:
 	if not file_proxy:
 		return UNNAMED
+	
 	return file_proxy.filepath.get_file()
 
 
-## Load the [FileProxy.text] into [member CodeEdit.text].
-func reload_text() -> void:
+## Load the [FileProxy.text] into [member CodeEdit.text].[br]
+## [b]Note[/b]: Use [method _reload_text] if you need to preserve information (like carets positions).
+func _load_text() -> void:
 	if not file_proxy:
 		return
+	
 	text = file_proxy.text
 
 
-## Update the [member FileProxy.text] with this [member CodeEdit.text].[br]
-## This is called every typo changem, this way others [CodeEditor]s using
-## the same [FileProxy] can change at the same time. In others words,
-## this will trigger [method reload_text] after.[br]
-func update_text() -> void:
-	file_proxy.text = text
-
-
-func save_text() -> void:
-	# Backup carets positions
-	var lines: Array[int] = []
-	var columns: Array[int] = []
+## Reload the [FileProxy.text] into [member CodeEdit.text].[br]
+## This will try to preserve informations from previous text (like carets positions).
+func _reload_text() -> void:
+	if not file_proxy:
+		return
 	
-	for i in get_caret_count():
-		lines.append(get_caret_line(i))
-		columns.append(get_caret_column(i))
+	_carets_backup = CaretUtility.get_carets(self)
+	text = file_proxy.text
+	CaretUtility.set_carets(self, _carets_backup)
+
+
+func _save_text() -> void:
+	if not file_proxy:
+		# TODO: Ask user where to save file and to name it.
+		return
 	
 	file_proxy.write()
+
+
+## Update the [member FileProxy.text] with this [member CodeEdit.text].[br]
+## This is called every typo change, this way others [CodeEditor]s using
+## the same [FileProxy] can change at the same time. In others words,
+## this will trigger [method _load_text] after.[br]
+func _on_text_changed() -> void:
+	if not file_proxy:
+		return
 	
-	assert(lines.size() == columns.size())
-	
-	for i in lines.size():
-		set_caret_line(lines[i], true, true, 0, i)
-		set_caret_column(columns[i], true, i)
+	file_proxy.text = text

@@ -78,7 +78,7 @@ Atalhos relacionados ao editor de texto.
 | `<ctrl>` + `r` | substituir texto no arquivo | x           | busca        |      |
 | `<ctrl>` + `R` | substituir no projeto       |             | busca        |      |
 | `<ctrl>` + `R` | substituir texto no projeto | x           | busca        |      |
-| `<ctrl>` + `s` | salvar arquivo              |             |              |      |
+| `<ctrl>` + `s` | salvar arquivo              |             |              | x    |
 | `<ctrl>` + `S` | salvar projeto              |             |              |      |
 | `<ctrl>` + `t` | abrir tab                   |             | fuzzy finder |      |
 | `<ctrl>` + `T` | reabrir tab                 |             |              |      |
@@ -153,12 +153,31 @@ Atalhos relacionados ao editor de texto.
 | `<ctrl>` + `<PGUP>`   | selecionar tab à esquerda |             |              |      |
 | `<ctrl>` + `<space>`  | exibir sugestões          |             |              |      |
 | `<ctrl>` + `<SPACE>`  | exibir alternativas       | x           |              |      |
-| `<ctrl>` + `<tab>`    | focar próxima tab         |             |              |      |
-| `<ctrl>` + `<TAB>`    | focar tab anterior        |             |              |      |
+| `<ctrl>` + `<tab>`    | focar próxima tab         |             |              | x    |
+| `<ctrl>` + `<TAB>`    | focar tab anterior        |             |              | x    |
 
-# Movimentação mode
+| Atalho                | Ação                      | Selecionado | Novo Modo    | Done |
+| --------------------- | ------------------------- | :---------: | :----------: | ---- |
+| `F1`                  |                           |             |              |      |
+| `F2`                  |                           |             |              |      |
+| `F3`                  |                           |             |              |      |
+| `F4`                  |                           |             |              |      |
+| `F5`                  |                           |             |              |      |
+| `F6`                  |                           |             |              |      |
+| `F7`                  |                           |             |              |      |
+| `F8`                  |                           |             |              |      |
+| `F9`                  |                           |             |              |      |
+| `F11`                 |                           |             |              |      |
+| `F12`                 |                           |             |              |      |
 
-Don't use `<ctrl>` because it's not like the user going to insert words.  
+# Tree mode
+
+Atalhos para utilizar quando tiver exibindo a árvore do projeto.  
+
+# Movimentation mode
+
+Atalhos não devem precisar `<ctrl>` pois usuários não vão estar escrevendo texto.  
+Ele vai apenas ditar como se movimentar.  
 
 | Atalho         | Ação                                  | Selecionado | Novo Modo    | Done |
 | -------------- | ------------------------------------- | :---------: | :----------: | ---- |
@@ -169,7 +188,7 @@ Don't use `<ctrl>` because it's not like the user going to insert words.
 | `<down>`       | muda orientação de char para esquerda |             |              |      |
 | `<esc>`        | sai do modo                           |             | normal       |      |
 
-# Busca mode
+# Search mode
 
 | Atalho               | Ação                                  | Selecionado | Novo Modo    | Done |
 | -------------------- | ------------------------------------- | :---------: | :----------: | ---- |

@@ -5,7 +5,9 @@ const WINDOW_EDITOR: PackedScene = preload("res://src/components/window_editor/w
 
 
 func _ready() -> void:
+	# Main scene is invisible, so mouse clicks needs to pass through it.
 	get_tree().root.mouse_passthrough = true
+	
 	_process_arguments()
 	_create_window()
 
@@ -25,7 +27,7 @@ func _process_arguments() -> void:
 func _create_window() -> void:
 	var window: WindowEditor = WINDOW_EDITOR.instantiate() as WindowEditor
 	
-	# This scene can't process inputs, so some action come from window request.
+	# This scene can't process inputs, so some action come as window request.
 	window.new_window_requested.connect(_create_window)
 	window.quit_requested.connect(_quit)
 	
