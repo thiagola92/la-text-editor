@@ -36,65 +36,65 @@ Atalhos relacionados ao editor de texto.
 
 > Extensões/plugins devem adicionar atalhos em outro modo!  
 
-| Atalho         | Ação                        | Selecionado | Novo Modo    | Done |
-| -------------- | ----------------------------| :---------: | :----------: | ---- |
-| `<ctrl>` + `a` | selecionar tudo             |             |              | x    |
-| `<ctrl>` + `A` | TODO                        |             |              |      |
-| `<ctrl>` + `b` | TODO                        |             |              |      |
-| `<ctrl>` + `B` | TODO                        |             |              |      |
-| `<ctrl>` + `c` | copiar linha                |             |              | x    |
-| `<ctrl>` + `c` | copiar selecionado          | x           |              | x    |
-| `<ctrl>` + `C` | copiar até character        |             | movimentação |      |
-| `<ctrl>` + `d` | selecionar destacado        |             |              | x    |
-| `<ctrl>` + `d` | selecionar duplicata        | x           |              | x    |
-| `<ctrl>` + `D` | selecionar duplicatas       |             |              |      |
-| `<ctrl>` + `e` | expandir escopo             |             | expansão lvl |      |
-| `<ctrl>` + `E` | expandir global             |             | expansão lvl |      |
-| `<ctrl>` + `f` | buscar no arquivo           |             | busca        |      |
-| `<ctrl>` + `f` | buscar texto no arquivo     | x           | busca        |      |
-| `<ctrl>` + `F` | buscar no projeto           |             | busca        |      |
-| `<ctrl>` + `F` | buscar texto no projeto     | x           | busca        |      |
-| `<ctrl>` + `g` | ir para linha               |             | movimentação |      |
-| `<ctrl>` + `G` | ir para character           |             | movimentação |      |
-| `<ctrl>` + `h` | TODO                        |             |              |      |
-| `<ctrl>` + `H` | TODO                        |             |              |      |
-| `<ctrl>` + `j` | TODO                        |             |              |      |
-| `<ctrl>` + `J` | TODO                        |             |              |      |
-| `<ctrl>` + `k` | TODO                        |             |              |      |
-| `<ctrl>` + `K` | TODO                        |             |              |      |
-| `<ctrl>` + `l` | TODO                        |             |              |      |
-| `<ctrl>` + `L` | TODO                        |             |              |      |
-| `<ctrl>` + `m` | mover foco para grupo       |             | grupo        |      |
-| `<ctrl>` + `M` | mover tab para grupo        |             | grupo        |      |
-| `<ctrl>` + `n` | nova tab                    |             |              | x    |
-| `<ctrl>` + `N` | nova janela                 |             |              | x    |
-| `<ctrl>` + `o` | abrir arquivo               |             |              | x    |
-| `<ctrl>` + `O` | abrir projeto               |             |              |      |
-| `<ctrl>` + `p` | escolher comando            |             | paleta       |      |
-| `<ctrl>` + `P` | escolher modo               |             | paleta       |      |
-| `<ctrl>` + `q` | fechar editor               |             |              | x    |
-| `<ctrl>` + `Q` | DONT                        |             |              |      |
-| `<ctrl>` + `r` | substituir no arquivo       |             | busca        |      |
-| `<ctrl>` + `r` | substituir texto no arquivo | x           | busca        |      |
-| `<ctrl>` + `R` | substituir no projeto       |             | busca        |      |
-| `<ctrl>` + `R` | substituir texto no projeto | x           | busca        |      |
-| `<ctrl>` + `s` | salvar arquivo              |             |              | x    |
-| `<ctrl>` + `S` | salvar projeto              |             |              |      |
-| `<ctrl>` + `t` | abrir tab                   |             | fuzzy finder |      |
-| `<ctrl>` + `T` | reabrir tab                 |             |              |      |
-| `<ctrl>` + `u` | TODO                        |             |              |      |
-| `<ctrl>` + `U` | TODO                        |             |              |      |
-| `<ctrl>` + `v` | colar copiado               |             |              | x    |
-| `<ctrl>` + `V` | colar antes do character    |             | movimentação |      |
-| `<ctrl>` + `w` | fechar tab                  |             |              | x    |
-| `<ctrl>` + `W` | fechar janela               |             |              | x    |
-| `<ctrl>` + `x` | recortar linha              |             |              | x    |
-| `<ctrl>` + `x` | recortar selecionado        | x           |              | x    |
-| `<ctrl>` + `X` | recortar até character      |             | movimentação |      |
-| `<ctrl>` + `y` | TODO                        |             |              |      |
-| `<ctrl>` + `Y` | TODO                        |             |              |      |
-| `<ctrl>` + `z` | desfazer                    |             |              | x    |
-| `<ctrl>` + `Z` | refazer                     |             |              | x    |
+| Atalho         | Ação                        | Selecionado | Novo Modo    | Tip       | Done |
+| -------------- | ----------------------------| :---------: | :----------: | :-------: | ---- |
+| `<ctrl>` + `a` | selecionar tudo             |             |              | All       | x    |
+| `<ctrl>` + `A` | TODO                        |             |              |           |      |
+| `<ctrl>` + `b` | TODO                        |             |              |           |      |
+| `<ctrl>` + `B` | TODO                        |             |              | Copy      |      |
+| `<ctrl>` + `c` | copiar linha                |             |              | Copy      | x    |
+| `<ctrl>` + `c` | copiar selecionado          | x           |              | Copy      | x    |
+| `<ctrl>` + `C` | copiar até character        |             | movimentação | Copy      |      |
+| `<ctrl>` + `d` | selecionar destacado        |             |              | Duplicate | x    |
+| `<ctrl>` + `d` | selecionar duplicata        | x           |              | Duplicate | x    |
+| `<ctrl>` + `D` | selecionar duplicatas       |             |              | Duplicate |      |
+| `<ctrl>` + `e` | expandir escopo             |             | expansão lvl | Expand    |      |
+| `<ctrl>` + `E` | expandir global             |             | expansão lvl | Expand    |      |
+| `<ctrl>` + `f` | buscar no arquivo           |             | busca        | Find      |      |
+| `<ctrl>` + `f` | buscar texto no arquivo     | x           | busca        | Find      |      |
+| `<ctrl>` + `F` | buscar no projeto           |             | busca        | Find      |      |
+| `<ctrl>` + `F` | buscar texto no projeto     | x           | busca        | Find      |      |
+| `<ctrl>` + `g` | ir para linha               |             | movimentação | Go to     |      |
+| `<ctrl>` + `G` | ir para character           |             | movimentação | Go to     |      |
+| `<ctrl>` + `h` | dividir horizontal          |             |              | Half      |      |
+| `<ctrl>` + `H` | dividir vertical            |             |              | Half      |      |
+| `<ctrl>` + `j` | TODO                        |             |              |           |      |
+| `<ctrl>` + `J` | TODO                        |             |              |           |      |
+| `<ctrl>` + `k` | TODO                        |             |              |           |      |
+| `<ctrl>` + `K` | TODO                        |             |              |           |      |
+| `<ctrl>` + `l` | TODO                        |             |              |           |      |
+| `<ctrl>` + `L` | TODO                        |             |              |           |      |
+| `<ctrl>` + `m` | mover foco para grupo       |             | grupo        | Move      |      |
+| `<ctrl>` + `M` | mover tab para grupo        |             | grupo        | Move      |      |
+| `<ctrl>` + `n` | nova tab                    |             |              | New       | x    |
+| `<ctrl>` + `N` | nova janela                 |             |              | New       | x    |
+| `<ctrl>` + `o` | abrir arquivo               |             |              | Open      | x    |
+| `<ctrl>` + `O` | abrir projeto               |             |              | Open      |      |
+| `<ctrl>` + `p` | escolher comando            |             | paleta       | Pallet    |      |
+| `<ctrl>` + `P` | escolher modo               |             | paleta       | Pallet    |      |
+| `<ctrl>` + `q` | fechar editor               |             |              | Quit      | x    |
+| `<ctrl>` + `Q` | DONT                        |             |              |           |      |
+| `<ctrl>` + `r` | substituir no arquivo       |             | busca        | Replace   |      |
+| `<ctrl>` + `r` | substituir texto no arquivo | x           | busca        | Replace   |      |
+| `<ctrl>` + `R` | substituir no projeto       |             | busca        | Replace   |      |
+| `<ctrl>` + `R` | substituir texto no projeto | x           | busca        | Replace   |      |
+| `<ctrl>` + `s` | salvar arquivo              |             |              | Save      | x    |
+| `<ctrl>` + `S` | salvar projeto              |             |              | Save      |      |
+| `<ctrl>` + `t` | abrir tab                   |             | fuzzy finder | Tab       |      |
+| `<ctrl>` + `T` | reabrir tab                 |             |              | Tab       |      |
+| `<ctrl>` + `u` | TODO                        |             |              |           |      |
+| `<ctrl>` + `U` | TODO                        |             |              |           |      |
+| `<ctrl>` + `v` | colar copiado               |             |              |           | x    |
+| `<ctrl>` + `V` | colar antes do character    |             | movimentação |           |      |
+| `<ctrl>` + `w` | fechar tab                  |             |              |           | x    |
+| `<ctrl>` + `W` | fechar janela               |             |              |           | x    |
+| `<ctrl>` + `x` | recortar linha              |             |              |           | x    |
+| `<ctrl>` + `x` | recortar selecionado        | x           |              |           | x    |
+| `<ctrl>` + `X` | recortar até character      |             | movimentação |           |      |
+| `<ctrl>` + `y` | TODO                        |             |              |           |      |
+| `<ctrl>` + `Y` | TODO                        |             |              |           |      |
+| `<ctrl>` + `z` | desfazer                    |             |              |           | x    |
+| `<ctrl>` + `Z` | refazer                     |             |              |           | x    |
 
 | Atalho          | Ação                        | Selecionado | Novo Modo    | Done |
 | --------------- | --------------------------- | :---------: | :----------: | ---- |
