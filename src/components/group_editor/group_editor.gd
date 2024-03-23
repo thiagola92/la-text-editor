@@ -5,8 +5,6 @@ class_name GroupEditor
 extends MarginContainer
 
 
-const CODE_EDITOR := preload("res://src/components/code_editor/code_editor.tscn")
-
 const TAB_EDITOR := preload("res://src/components/tab_editor/tab_editor.tscn")
 
 @export var file_opener: FileDialog
@@ -24,7 +22,7 @@ func _shortcut_input(_event: InputEvent) -> void:
 		return
 	
 	if Input.is_action_just_pressed("ui_file_open"):
-		_on_tab_editor_open_file_requested(_new_tab_editor(true))
+		_on_tab_editor_open_file_requested(_new_empty_tab_editor())
 		get_viewport().set_input_as_handled()
 	elif Input.is_action_just_pressed("ui_tab_new"):
 		_add_split_container(_new_split_container())
@@ -47,9 +45,9 @@ func _is_empty() -> bool:
 func _add_split_container(split_container: SplitContainer) -> SplitContainer:
 	add_child(split_container)
 	
-	for c in split_container.get_children():
-		if c is TabEditor:
-			c.focus_current_tab()
+	for tab_editor in split_container.get_children():
+		if tab_editor is TabEditor:
+			tab_editor.focus_tab()
 			return split_container
 	
 	return split_container
@@ -57,8 +55,8 @@ func _add_split_container(split_container: SplitContainer) -> SplitContainer:
 
 ## Create a [SplitContainer] with a [TabEditor] as child.
 func _new_split_container(
+	tab_editor: TabEditor = _new_tab_editor(),
 	vertical: bool = false,
-	tab_editor: TabEditor = _new_tab_editor()
 ) -> SplitContainer:
 	var split_container := SplitContainer.new()
 	
@@ -74,15 +72,21 @@ func _new_split_container(
 	return split_container
 
 
-## Create a [TabEditor] and make this [GroupEditor] listen to requests from it.[br]
-## Use [code]empty[/code] as true if you are going to manually create the tab later.
-func _new_tab_editor(empty: bool = false) -> TabEditor:
+## Create a [TabEditor] with a tab to the [FileProxy].[br]
+## Passing [code]file_proxy[/code] as [code]null[/code] will create an empty tab.
+func _new_tab_editor(file_proxy: FileProxy = null) -> TabEditor:
+	var tab_editor := _new_empty_tab_editor()
+	tab_editor.new_tab(file_proxy)
+	return tab_editor
+
+
+## Create an empty [TabEditor] and make this [GroupEditor] listen to requests from it.[br]
+## Empty [TabEditor] doesn't contain any tab (not even an empty tab).
+func _new_empty_tab_editor() -> TabEditor:
 	var tab_editor := TAB_EDITOR.instantiate() as TabEditor
 	tab_editor.split_requested.connect(_on_tab_editor_split_requested)
 	tab_editor.open_file_requested.connect(_on_tab_editor_open_file_requested)
-	
-	if not empty:
-		tab_editor.new_tab()
+	tab_editor.tree_exiting.connect(_on_tab_editor_tree_exiting.bind(tab_editor))
 	
 	return tab_editor
 
@@ -92,21 +96,41 @@ func _on_split_container_child_order_changed(split_container: SplitContainer) ->
 		split_container.queue_free()
 
 
+## Loop through parents searching for new [TabEditor] to focus.
+func _on_tab_editor_tree_exiting(tab_editor: TabEditor) -> void:
+	var parent: Node = tab_editor.get_parent()
+	
+	while(parent and parent != self):
+		if parent is SplitContainer:
+			for child in parent.get_children():
+				if child is TabEditor:
+					if child != tab_editor:
+						child.focus_tab()
+						return
+		
+		parent = parent.get_parent()
+
+
 func _on_tab_editor_split_requested(tab_editor: TabEditor, vertical: bool) -> void:
 	if not tab_editor.get_parent() is SplitContainer:
 		return
 	
 	var parent := tab_editor.get_parent() as SplitContainer
+	var file_proxy: FileProxy = tab_editor.get_tab().file_proxy
+	var new_tab_editor: TabEditor = _new_tab_editor(file_proxy)
 	
 	if parent.get_child_count() < 2:
-		parent.add_child(_new_tab_editor())
+		parent.add_child(new_tab_editor)
 		parent.vertical = vertical
 	else:
 		var index: int = tab_editor.get_index()
-		var new_split_container := _new_split_container(vertical)
-		tab_editor.reparent(new_split_container)
+		var new_split_container := _new_split_container(new_tab_editor, vertical)
 		parent.add_child(new_split_container)
 		parent.move_child(new_split_container, index)
+		tab_editor.reparent(new_split_container)
+		new_split_container.move_child(tab_editor, 0)
+	
+	new_tab_editor.focus_tab()
 
 
 func _on_tab_editor_open_file_requested(tab_editor: TabEditor) -> void:
@@ -119,14 +143,11 @@ func _on_file_opener_file_selected(path: String) -> void:
 	if not _current_tab_editor:
 		return
 	
-	var code_editor: CodeEditor = _current_tab_editor.new_tab()
-	var file_proxy: FileProxy = FilesProxies.get_file_proxy(path)
+	_current_tab_editor.new_tab(FilesProxies.get_file_proxy(path))
 	
-	code_editor.file_proxy = file_proxy
-	
-	# It's a temporary [TabEditor], we need to turn into permanent.
+	# If it's a temporary [TabEditor], we need to turn into permanent.
 	if not _current_tab_editor.get_parent():
-		_add_split_container(_new_split_container(false, _current_tab_editor))
+		_add_split_container(_new_split_container(_current_tab_editor, false))
 	
 	_current_tab_editor = null
 

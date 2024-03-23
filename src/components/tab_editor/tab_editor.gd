@@ -16,7 +16,7 @@ const CODE_EDITOR := preload("res://src/components/code_editor/code_editor.tscn"
 
 func _ready():
 	# Some behaviors can't be setted through TabContainer, so we need to obtain TabBar from it.
-	get_tab_bar().tab_close_display_policy = TabBar.CLOSE_BUTTON_SHOW_ALWAYS
+	#get_tab_bar().tab_close_display_policy = TabBar.CLOSE_BUTTON_SHOW_ALWAYS
 	get_tab_bar().tab_close_pressed.connect(_close_tab)
 	
 	_reload_tabs_names()
@@ -49,23 +49,29 @@ func _shortcut_input(_event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 
 
-## Creates a [CodeEditor] and insert in a new tab.[br]
-## Return the [CodeEditor] created in case needs to setup [member CodeEditor.file_proxy].
-func new_tab() -> CodeEditor:
+## Creates a [CodeEditor] and insert as a tab in the [TabEditor].[br]
+func new_tab(file_proxy: FileProxy = null) -> void:
 	var code_editor := CODE_EDITOR.instantiate() as CodeEditor
+	code_editor.file_proxy = file_proxy
 	
 	add_child(code_editor)
 	current_tab = get_tab_count() - 1
-	focus_current_tab()
-	
-	return code_editor
+	#focus_tab()
 
 
-## Attempt to focus the [member current_tab].[br]
+## Attempt to focus a tab.[br]
+## Default behavior is focus the [member current_tab].[br]
 ## A temporary [TabEditor] wouldn't be in the tree, in this case do nothing.
-func focus_current_tab() -> void:
-	if is_inside_tree():
-		get_child(current_tab).grab_focus()
+func focus_tab(tab: int = current_tab) -> void:
+	if is_inside_tree() and tab >= 0:
+		(get_child(tab) as CodeEditor).grab_focus()
+
+
+## Get a tab, which is a [CodeEditor].
+func get_tab(tab: int = current_tab) -> CodeEditor:
+	if tab >= 0:
+		return get_child(tab) as CodeEditor
+	return null
 
 
 func _reload_tabs_names() -> void:
@@ -86,13 +92,11 @@ func _close_tab(tab: int) -> void:
 func _next_tab() -> void:
 	if current_tab < get_child_count():
 		current_tab += 1
-		get_child(current_tab).grab_focus()
 
 
 func _previous_tab() -> void:
 	if current_tab > 0:
 		current_tab -= 1
-		get_child(current_tab).grab_focus()
 
 
 func _on_child_order_changed() -> void:
@@ -100,4 +104,7 @@ func _on_child_order_changed() -> void:
 		queue_free()
 	else:
 		_reload_tabs_names()
-	
+
+
+func _on_tab_changed(tab: int) -> void:
+	focus_tab()
