@@ -70,8 +70,8 @@ Atalhos relacionados ao editor de texto.
 | `<ctrl>` + `N` | nova janela                 |             |              | New       | x    |
 | `<ctrl>` + `o` | abrir arquivo               |             |              | Open      | x    |
 | `<ctrl>` + `O` | abrir projeto               |             |              | Open      |      |
-| `<ctrl>` + `p` | escolher comando            |             | paleta       | Pallet    |      |
-| `<ctrl>` + `P` | escolher modo               |             | paleta       | Pallet    |      |
+| `<ctrl>` + `p` | escolher comando            |             | paleta       | Palette   |      |
+| `<ctrl>` + `P` | escolher modo               |             | paleta       | Palette   |      |
 | `<ctrl>` + `q` | fechar editor               |             |              | Quit      | x    |
 | `<ctrl>` + `Q` | DONT                        |             |              |           |      |
 | `<ctrl>` + `r` | substituir no arquivo       |             | busca        | Replace   |      |
